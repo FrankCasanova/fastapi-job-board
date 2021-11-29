@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 fastapi = {extras = ["all"], version = "*"}
 aiofiles = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
 
 [dev-packages]
 autopep8 = "*"
