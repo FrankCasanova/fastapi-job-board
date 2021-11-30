@@ -9,6 +9,8 @@ aiofiles = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
 passlib = {extras = ["bcrypt"], version = "*"}
+requests = "*"
+pytest = "*"
 
 [dev-packages]
 autopep8 = "*"
