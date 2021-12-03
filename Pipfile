@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 passlib = {extras = ["bcrypt"], version = "*"}
 requests = "*"
 pytest = "*"
+pre-commit = "*"
 
 [dev-packages]
 autopep8 = "*"
