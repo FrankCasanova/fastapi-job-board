@@ -13,7 +13,7 @@
     hooks:
     -   id: flake8
         args: [--max-line-length=88]
-        files: ^backend/|^test/
+        files: ^job-board-fastapi/|^test/
 -   repo: https://github.com/asottile/reorder_python_imports
     rev: v2.3.6
     hooks:
