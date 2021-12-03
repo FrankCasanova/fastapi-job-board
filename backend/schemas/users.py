@@ -1,6 +1,6 @@
-from typing import Optional
-from pydantic import BaseModel, EmailStr
-from sqlalchemy import orm
+from pydantic import BaseModel
+from pydantic import EmailStr
+
 
 # properties required for user creation
 
@@ -16,5 +16,5 @@ class ShowUser(BaseModel):
     email: EmailStr
     is_active: bool
 
-    class Config():
+    class Config:
         orm_mode = True

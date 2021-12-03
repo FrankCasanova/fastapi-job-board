@@ -1,6 +1,8 @@
+from datetime import date
+from datetime import datetime
 from typing import Optional
+
 from pydantic import BaseModel
-from datetime import datetime, date
 
 
 # shared properties
@@ -8,9 +10,10 @@ class JobBase(BaseModel):
     title: Optional[str] = None
     company: Optional[str] = None
     company_url: Optional[str] = None
-    location: Optional[str] = 'Remote'
+    location: Optional[str] = "Remote"
     description: Optional[str] = None
     date_posted: Optional[date] = datetime.now().date()
+
 
 # this will be used to velidate the data while creating a Job
 
@@ -31,5 +34,5 @@ class ShowJob(JobBase):
     date_posted: date
     company_url: Optional[str]
 
-    class Config():  # to convert non dict obj to json
+    class Config:  # to convert non dict obj to json
         orm_mode = True

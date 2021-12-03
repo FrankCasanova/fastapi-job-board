@@ -1,7 +1,10 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Date
-from sqlalchemy.orm import relationship
-
 from db.base_class import Base
+from sqlalchemy import Column
+from sqlalchemy import Date
+from sqlalchemy import ForeignKey
+from sqlalchemy import Integer
+from sqlalchemy import String
+from sqlalchemy.orm import relationship
 
 
 class Job(Base):
@@ -13,5 +16,5 @@ class Job(Base):
     location = Column(String(100), nullable=False)
     description = Column(String(1000), nullable=False)
     date_posted = Column(Date, nullable=False)
-    owner_id = Column(Integer, ForeignKey('user.id'), nullable=False)
+    owner_id = Column(Integer, ForeignKey("user.id"), nullable=False)
     owner = relationship("User", back_populates="job")
