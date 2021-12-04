@@ -55,3 +55,23 @@ def test_read_job(client):
         "description": "python",
         "date_posted": "2020-01-01",
     }
+
+
+def test_read_all_jobs(client):
+    data = dict(
+        title="sde super",
+        company="doogle",
+        company_url="https://www.doogle.com",
+        location="somewhere",
+        description="python",
+        date_posted="2020-01-01",
+    )
+
+    client.post("/jobs/create-job/", json.dumps(data))
+    client.post("/jobs/create-job/", json.dumps(data))
+
+    response = client.get("/jobs/all/")
+
+    assert response.status_code == 200
+    assert response.json()[0]
+    assert response.json()[1]
