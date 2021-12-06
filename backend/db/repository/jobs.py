@@ -20,3 +20,12 @@ def list_jobs(db: Session):
     jobs = db.query(Job).filter(Job.is_active == True).all()
 
     return jobs
+
+
+def delete_job_by_id(id: int, db: Session, owner_id: int):
+    existing_job = db.query(Job).filter(Job.id == id)
+    if not existing_job.first():
+        return 0
+    existing_job.delete(synchronize_session=False)
+    db.commit()
+    return 1
