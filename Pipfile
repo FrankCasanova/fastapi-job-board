@@ -12,6 +12,7 @@ passlib = {extras = ["bcrypt"], version = "*"}
 requests = "*"
 pytest = "*"
 pre-commit = "*"
+python-jose = "*"
 
 [dev-packages]
 autopep8 = "*"
