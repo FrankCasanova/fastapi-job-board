@@ -22,6 +22,18 @@ def list_jobs(db: Session):
     return jobs
 
 
+def update_job_by_id(id: int, job: JobCreate, db: Session, owner_id):
+    existing_job = db.query(Job).filter(Job.id == id)
+    if not existing_job.first():
+        return 0
+    job.__dict__.update(
+        owner_id=owner_id
+    )  # update dictionary with new key value of owner_id
+    existing_job.update(job.__dict__)
+    db.commit()
+    return 1
+
+
 def delete_job_by_id(id: int, db: Session, owner_id: int):
     existing_job = db.query(Job).filter(Job.id == id)
     if not existing_job.first():
