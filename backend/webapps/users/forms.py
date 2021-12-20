@@ -19,6 +19,7 @@ class UserCreateForm:
         self.password = form.get("password")
 
     async def is_valid(self):
+
         if not self.username or not len(self.username) > 3:
             self.errors.append("Username is required")
         if not self.email or not (self.email.__contains__("@")):

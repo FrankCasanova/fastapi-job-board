@@ -5,7 +5,7 @@ from db.models.users import User
 from db.repository.jobs import create_new_job
 from db.repository.jobs import delete_job_by_id
 from db.repository.jobs import list_jobs
-from db.repository.jobs import retrieve_job
+from db.repository.jobs import retreive_job
 from db.repository.jobs import update_job_by_id
 from db.session import get_db
 from fastapi import APIRouter
@@ -38,7 +38,7 @@ def read_job(id: int, db: Session = Depends(get_db)):
     """
     Get a job by id
     """
-    job = retrieve_job(id=id, db=db)
+    job = retreive_job(id=id, db=db)
     if not job:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -76,7 +76,7 @@ def delete_job(
     """
     Delete a job by id
     """
-    job = retrieve_job(id=id, db=db)
+    job = retreive_job(id=id, db=db)
     if not job:
         return HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

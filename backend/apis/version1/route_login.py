@@ -59,7 +59,7 @@ oauth2_scheme = OAuth2PasswordBearerWithCookie(tokenUrl="/login/token")
 
 
 def get_current_user_from_token(
-    token: str = Depends(oauth2_scheme), Session=Depends(get_db)
+    token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)
 ):
     """
     This function is used to get the current user from the token.
@@ -74,11 +74,12 @@ def get_current_user_from_token(
             token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
         )
         username: str = payload.get("sub")
+        print("username/email extracted is ", username)
         if username is None:
             raise credentials_expetion
     except JWTError:
         raise credentials_expetion
-    user = get_user(username=username, db=Session)
+    user = get_user(username=username, db=db)
     if user is None:
         raise credentials_expetion
     return user
