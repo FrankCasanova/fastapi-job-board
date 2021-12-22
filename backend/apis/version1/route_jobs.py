@@ -85,7 +85,7 @@ def delete_job(
     print(job.owner_id, current_user.id, current_user.is_superuser)
     if job.owner_id == current_user.id or current_user.is_superuser:
         delete_job_by_id(id=id, db=db, owner_id=current_user.id)
-        return {"message": f"Job with id: {id} deleted."}
+        return {"detail": f"Job with id: {id} deleted."}
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="You are not allowed to delete this job.",
