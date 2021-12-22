@@ -1,5 +1,7 @@
 # fastapi-job-board
 
+![](backend/static/images/lite.gif)
+
 I build a job board website, In which we will be having:
 
     List a job
@@ -15,7 +17,7 @@ I build a job board website, In which we will be having:
 
 I follow something called Test-Driven Development in which we will be creating a unit-test for each of the components.
 
-![](backend/static/images/lite.gif)
+
 
 ## Technology Stack:
 * FastAPI
